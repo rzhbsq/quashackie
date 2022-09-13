@@ -14,7 +14,7 @@ _G.Key = "Hggjd1jgdk51o"
 _G.KeyInput = "string"
 
 function MakeScriptHub()
-    local Tab = Window2:MakeTab({
+    local Tab = Window:MakeTab({
         Name = "Invis",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = true
