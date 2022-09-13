@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Player = game.Players.LocalPlayer
-local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = true, SaveConfig = true, ConfigFolder = "Key"})
+local Window = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = true, SaveConfig = true, ConfigFolder = "Key"})
 loadstring(game:HttpGet('https://raw.githubusercontent.com/rzhbsq/quashackie/main/keysystem.txt'))()
 
 OrionLib:MakeNotification({
@@ -10,19 +10,17 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
-_G.Key = "hahaha"
+_G.Key = "Hggjd1jgdk51o"
 _G.KeyInput = "string"
 
 function MakeScriptHub()
-    local Window2 = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = false, SaveConfig = true, ConfigFolder = "QuasHack"})
-
-    local Tab2 = Window2:MakeTab({
+    local Tab = Window2:MakeTab({
         Name = "Invis",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = true
     })
     
-    Tab2:AddButton({
+    Tab:AddButton({
         Name = "Invisible R15",
         Callback = function()
             local removeNametags = false
