@@ -56,6 +56,19 @@ function MakeScriptHub()
             hrp.CFrame = old
           end    
     })
+
+    local Tab2 = Window:MakeTab({
+        Name = "Visual",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+
+    Tab2:AddButton({
+        Name = "AimBot",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/huyna.txt"))()
+          end    
+    })
 end
 
 function CorrectKeyNotification()
