@@ -13,7 +13,6 @@ _G.Key = "Hggjd1jgdk51o"
 _G.KeyInput = "string"
 
 function MakeScriptHub()
-    OrionLib:DestroyTab()
     local Tab2 = Window:MakeTab({
         Name = "Invis",
         Icon = "rbxassetid://4483345998",
