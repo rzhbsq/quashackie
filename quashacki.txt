@@ -76,6 +76,38 @@ function MakeScriptHub()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/bayka.txt"))()
           end    
     })
+
+    local Tab3 = Window:MakeTab({
+        Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+
+    Tab3:AddSlider({
+        Name = "SpeedHack",
+        Min = 0,
+        Max = 500,
+        Default = 5,
+        Color = Color3.fromRGB(255,255,255),
+        Increment = 1,
+        ValueName = "bananas",
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        end    
+    })
+
+    Tab3:AddSlider({
+        Name = "JumpHack",
+        Min = 0,
+        Max = 500,
+        Default = 5,
+        Color = Color3.fromRGB(255,255,255),
+        Increment = 1,
+        ValueName = "bananas",
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.JumpSpeed = Value
+        end    
+    })
 end
 
 function CorrectKeyNotification()
