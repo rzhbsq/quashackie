@@ -69,6 +69,13 @@ function MakeScriptHub()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/huyna.txt"))()
           end    
     })
+
+    Tab2:AddButton({
+        Name = "ESP",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/bayka.txt"))()
+          end    
+    })
 end
 
 function CorrectKeyNotification()
