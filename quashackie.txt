@@ -1,7 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Player = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = true, SaveConfig = true, ConfigFolder = "Key"})
-loadstring(game:HttpGet('https://raw.githubusercontent.com/rzhbsq/quashackie/main/keysystem.txt'))()
 
 OrionLib:MakeNotification({
 	Name = "Logged!",
@@ -10,13 +9,11 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
-_G.Key = "haha"
+_G.Key = "Hggjd1jgdk51o"
 _G.KeyInput = "string"
 
 function MakeScriptHub()
-    local Window2 = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = false, SaveConfig = true, ConfigFolder = "QuasHack"})
-
-    local Tab2 = Window2:MakeTab({
+    local Tab2 = Window:MakeTab({
         Name = "Invis",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = true
