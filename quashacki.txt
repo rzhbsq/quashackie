@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Player = game.Players.LocalPlayer
-local Window = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = false, SaveConfig = true, ConfigFolder = "Key"})
+local Window = OrionLib:MakeWindow({Name = "QuasHub", HidePremium = false, SaveConfig = true, ConfigFolder = "Enter Key"})
 loadstring(game:HttpGet('https://raw.githubusercontent.com/rzhbsq/quashackie/main/keysystem.txt'))()
 
 OrionLib:MakeNotification({
@@ -10,17 +10,33 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
+local Tab8 = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = true
+})
+
+Tab8:AddLabel("Made by Quas")
+
+Tab8:AddButton({
+	Name = "Join The Discord! (Copy Link)",
+	Text = "https://discord.gg/A5VUfES5X6",
+	Callback = function()
+		setclipboard("https://discord.gg/A5VUfES5X6")
+	end    
+})
+
 _G.Key = "Hggjd1jgdk51o"
 _G.KeyInput = "string"
 
 function MakeScriptHub()
-    local Tab = Window:MakeTab({
+    local Tab10 = Window:MakeTab({
         Name = "Invis",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = true
     })
     
-    Tab:AddButton({
+    Tab10:AddButton({
         Name = "Invisible R15",
         Callback = function()
             local removeNametags = false
@@ -87,12 +103,12 @@ function MakeScriptHub()
         Name = "SpeedHack",
         Min = 0,
         Max = 500,
-        Default = 5,
+        Default = 15,
         Color = Color3.fromRGB(255,255,255),
         Increment = 1,
         ValueName = "ishowspeeds",
-        Callback = function(Value)
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        Callback = function(s)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
         end    
     })
 
@@ -100,13 +116,39 @@ function MakeScriptHub()
         Name = "JumpHack",
         Min = 0,
         Max = 500,
-        Default = 5,
+        Default = 50,
         Color = Color3.fromRGB(255,255,255),
         Increment = 1,
         ValueName = "ishowspeeds",
-        Callback = function(Value)
-            game.Players.LocalPlayer.Character.Humanoid.JumpSpeed = Value
+        Callback = function(s)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
         end    
+    })
+
+    local Tab4 = Window:MakeTab({
+        Name = "Other",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+
+    Tab4:AddButton({
+        Name = "Fly",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/masturbek.txt"))()
+          end    
+    })
+
+    Tab4:AddButton({
+        Name = "Noclip",
+        Callback = function()
+            game:GetService('RunService').Stepped:connect(function()
+                game.Players.LocalPlayer.Character.Head.CanCollide = false
+                game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+                game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+                end)
+                wait(.1)
+          end    
     })
 end
 
@@ -129,7 +171,7 @@ function InCorrectKeyNotification()
 end
 
 local Tab = Window:MakeTab({
-	Name = "Key",
+	Name = "Enter Key",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -149,8 +191,11 @@ Tab:AddButton({
       		if _G.KeyInput == _G.Key then
                 MakeScriptHub()
                 CorrectKeyNotification()
+                OrionLib:Destroy(Tab)
             else
                 InCorrectKeyNotification()
             end
   	end    
 })
+
+OrionLib:Init()
