@@ -1,0 +1,106 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = true, SaveConfig = true, ConfigFolder = "Key"})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/rzhbsq/quashackie/main/keysystem.txt'))()
+
+OrionLib:MakeNotification({
+	Name = "Logged!",
+	Content = "You're logged in as "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+_G.Key = "hahaha"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+    local Window2 = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = false, SaveConfig = true, ConfigFolder = "QuasHack"})
+
+    local Tab2 = Window2:MakeTab({
+        Name = "Invis",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+    
+    Tab2:AddButton({
+        Name = "Invisible R15",
+        Callback = function()
+            local removeNametags = false
+
+            local plr = game:GetService("Players").LocalPlayer
+            local character = plr.Character
+            local hrp = character.HumanoidRootPart
+            local old = hrp.CFrame
+            
+            if not character:FindFirstChild("LowerTorso") or character.PrimaryPart ~= hrp then
+            return print("unsupported")
+            end
+            
+            if removeNametags then
+            local tag = hrp:FindFirstChildOfClass("BillboardGui")
+            if tag then tag:Destroy() end
+            
+            hrp.ChildAdded:Connect(function(item)
+            if item:IsA("BillboardGui") then
+            task.wait()
+            item:Destroy()
+            end
+            end)
+            end
+            
+            local newroot = character.LowerTorso.Root:Clone()
+            hrp.Parent = workspace
+            character.PrimaryPart = hrp
+            character:MoveTo(Vector3.new(old.X,9e9,old.Z))
+            hrp.Parent = character
+            task.wait(0.5)
+            newroot.Parent = hrp
+            hrp.CFrame = old
+          end    
+    })
+end
+
+function CorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Correct Key!",
+        Content = "You have entered correct key",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+function InCorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "InCorrect Key!",
+        Content = "You have entered incorrect key",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+local Tab = Window:MakeTab({
+	Name = "Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+Tab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.KeyInput == _G.Key then
+                MakeScriptHub()
+                CorrectKeyNotification()
+            else
+                InCorrectKeyNotification()
+            end
+  	end    
+})
