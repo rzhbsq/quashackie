@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Player = game.Players.LocalPlayer
-local Window = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = true, SaveConfig = true, ConfigFolder = "Key", IntroText = "QuasHack"})
+local Window = OrionLib:MakeWindow({Name = "QuasHack", HidePremium = true, SaveConfig = true, ConfigFolder = "Key", IntroText = QuasHack})
 loadstring(game:HttpGet('https://raw.githubusercontent.com/rzhbsq/quashackie/main/keysystem.txt'))()
 
 OrionLib:MakeNotification({
