@@ -1,1 +1,200 @@
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/rzhbsq/qua1/main/quashacki.txt?token=GHSAT0AAAAAABYWM3HO3IND75KHTVNL72UGYZFYRZA')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "QuasHub", HidePremium = false, SaveConfig = true, ConfigFolder = "Enter Key"})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/rzhbsq/quashackie/main/keysystem.txt'))()
+
+OrionLib:MakeNotification({
+	Name = "Logged!",
+	Content = "You're logged in as "..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+local Tab8 = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = true
+})
+
+Tab8:AddLabel("Made by Quas")
+
+Tab8:AddButton({
+	Name = "Join The Discord! (Copy Link)",
+	Text = "https://discord.gg/A5VUfES5X6",
+	Callback = function()
+		setclipboard("https://discord.gg/A5VUfES5X6")
+	end    
+})
+
+_G.Key = "Hggjd1jgdk51o"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+    local Tab10 = Window:MakeTab({
+        Name = "Invis",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+    
+    Tab10:AddButton({
+        Name = "Invisible R15",
+        Callback = function()
+            local removeNametags = false
+
+            local plr = game:GetService("Players").LocalPlayer
+            local character = plr.Character
+            local hrp = character.HumanoidRootPart
+            local old = hrp.CFrame
+            
+            if not character:FindFirstChild("LowerTorso") or character.PrimaryPart ~= hrp then
+            return print("unsupported")
+            end
+            
+            if removeNametags then
+            local tag = hrp:FindFirstChildOfClass("BillboardGui")
+            if tag then tag:Destroy() end
+            
+            hrp.ChildAdded:Connect(function(item)
+            if item:IsA("BillboardGui") then
+            task.wait()
+            item:Destroy()
+            end
+            end)
+            end
+            
+            local newroot = character.LowerTorso.Root:Clone()
+            hrp.Parent = workspace
+            character.PrimaryPart = hrp
+            character:MoveTo(Vector3.new(old.X,9e9,old.Z))
+            hrp.Parent = character
+            task.wait(0.5)
+            newroot.Parent = hrp
+            hrp.CFrame = old
+          end    
+    })
+
+    local Tab2 = Window:MakeTab({
+        Name = "Visual",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+
+    Tab2:AddButton({
+        Name = "AimBot",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/huyna.txt"))()
+          end    
+    })
+
+    Tab2:AddButton({
+        Name = "ESP",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/bayka.txt"))()
+          end    
+    })
+
+    local Tab3 = Window:MakeTab({
+        Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+
+    Tab3:AddSlider({
+        Name = "SpeedHack",
+        Min = 0,
+        Max = 500,
+        Default = 15,
+        Color = Color3.fromRGB(255,255,255),
+        Increment = 1,
+        ValueName = "ishowspeeds",
+        Callback = function(s)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+        end    
+    })
+
+    Tab3:AddSlider({
+        Name = "JumpHack",
+        Min = 0,
+        Max = 500,
+        Default = 50,
+        Color = Color3.fromRGB(255,255,255),
+        Increment = 1,
+        ValueName = "ishowspeeds",
+        Callback = function(s)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+        end    
+    })
+
+    local Tab4 = Window:MakeTab({
+        Name = "Other",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = true
+    })
+
+    Tab4:AddButton({
+        Name = "Fly",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/rzhbsq/quashackie/main/masturbek.txt"))()
+          end    
+    })
+
+    Tab4:AddButton({
+        Name = "Noclip",
+        Callback = function()
+            game:GetService('RunService').Stepped:connect(function()
+                game.Players.LocalPlayer.Character.Head.CanCollide = false
+                game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+                game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+                end)
+                wait(.1)
+          end    
+    })
+end
+
+function CorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Correct Key!",
+        Content = "You have entered correct key",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+function InCorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "InCorrect Key!",
+        Content = "You have entered incorrect key",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+local Tab = Window:MakeTab({
+	Name = "Enter Key",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+Tab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.KeyInput == _G.Key then
+                MakeScriptHub()
+                CorrectKeyNotification()
+            else
+                InCorrectKeyNotification()
+            end
+  	end    
+})
+
+OrionLib:Init()
